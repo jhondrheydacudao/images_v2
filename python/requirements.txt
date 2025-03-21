@@ -1,4 +1,5 @@
- # Web Frameworks & APIs
+# You can change if YOU WANT, But this is all of the packages was added 
+# Web Frameworks & APIs
 Flask==3.0.2
 Flask-Cors==4.0.1
 Django==5.0.2
