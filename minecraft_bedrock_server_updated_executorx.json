@@ -1,0 +1,28 @@
+{
+    "Image": "itzg/minecraft-bedrock-server",
+    "Cmd": "",
+    "Env": [
+        "EULA=TRUE"
+    ],
+    "Scripts": {
+        "Install": [
+            {
+                "Uri": "https://raw.githubusercontent.com/itzg/docker-minecraft-bedrock-server/main/server.properties",
+                "Path": "/data/server.properties"
+            }
+        ]
+    },
+    "Name": "Minecraft Bedrock Server",
+    "Description": "Minecraft Bedrock Edition server. Play with your friends on a dedicated server powered by Docker.",
+    "Author": "info@skyport.dev",
+    "AuthorName": "Skyport Labs",
+    "Meta": {
+        "Version": "Skyport Images v2"
+    },
+    "Ports": [
+        {
+            "Port": 19132,
+            "Protocol": "UDP"
+        }
+    ]
+}
