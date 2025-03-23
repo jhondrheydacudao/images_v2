@@ -2,22 +2,27 @@
     "Image": "itzg/minecraft-bedrock-server",
     "Cmd": "",
     "Env": [
-        "EULA=TRUE"
+        "EULA=TRUE",
+        "GAMEMODE=survival",
+        "DIFFICULTY=easy",
+        "SERVER_NAME=My Bedrock Server",
+        "SERVER_PORT=19132",
+        "ALLOW_CHEATS=false"
     ],
     "Scripts": {
-        "Install": [
+        "Install": [],
+        "Run": [
             {
-                "Uri": "https://raw.githubusercontent.com/itzg/docker-minecraft-bedrock-server/main/server.properties",
-                "Path": "/data/server.properties"
+                "Cmd": "./bedrock_server",
+                "Wait": true
             }
         ]
     },
     "Name": "Minecraft Bedrock Server",
     "Description": "Minecraft Bedrock Edition server. Play with your friends on a dedicated server powered by Docker.",
-    "Author": "info@skyport.dev",
-    "AuthorName": "Skyport Labs",
+    "Author": "Your Name",
     "Meta": {
-        "Version": "Skyport Images v2"
+        "Version": "1.21.62"
     },
     "Ports": [
         {
