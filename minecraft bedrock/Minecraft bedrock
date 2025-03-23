@@ -1,5 +1,5 @@
 {
-    "Image": "ghcr.io/parkervcp/yolks:debian",
+    "Image": "itzg/minecraft-bedrock-server",
     "Cmd": "./bedrock_server",
     "Env": [
         "EULA=TRUE",
@@ -8,13 +8,15 @@
         "SERVER_NAME=My Bedrock Server",
         "SERVER_PORT=19132",
         "ALLOW_CHEATS=false",
-        "BEDROCK_VERSION=latest"
+        "BEDROCK_VERSION=latest",
+        "MOTD=Welcome to the server!"
     ],
     "Scripts": {
         "Install": [
             "#!/bin/bash",
-            "apt-get update",
-            "apt-get install -y wget curl unzip",
+            "echo 'Setting up Minecraft Bedrock server...'",
+            "apt-get update && apt-get install -y wget curl unzip",
+            "echo 'Downloading the Minecraft Bedrock server...'",
             "curl -L -o bedrock-server.zip https://minecraft.azureedge.net/bin-linux/bedrock-server-${BEDROCK_VERSION}.zip",
             "unzip bedrock-server.zip -d /mnt/server",
             "rm bedrock-server.zip",
@@ -89,6 +91,16 @@
             "user_viewable": true,
             "user_editable": true,
             "rules": "required|string|in:true,false",
+            "field_type": "text"
+        },
+        {
+            "name": "MOTD",
+            "description": "Message of the Day displayed when players join.",
+            "env_variable": "MOTD",
+            "default_value": "Welcome to the server!",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:100",
             "field_type": "text"
         }
     ]
