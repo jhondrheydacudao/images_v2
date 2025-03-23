@@ -1,36 +1,48 @@
-# Use the official Minecraft Bedrock server image
+# Use the official base image for Minecraft Bedrock Server
 FROM itzg/minecraft-bedrock-server:latest
 
-# Set the working directory
-WORKDIR /data
+# Set the working directory inside the container
+WORKDIR /mnt/server
 
-# Set environment variables for the Minecraft server configuration
-ENV EULA=TRUE
-ENV GAMEMODE=survival
-ENV DIFFICULTY=easy
-ENV SERVER_NAME="My Bedrock Server"
-ENV SERVER_PORT=19132
-ENV ALLOW_CHEATS=false
-ENV MOTD="Welcome to the server!"
-ENV BEDROCK_VERSION=latest
+# Install necessary dependencies (if not included in the base image)
+RUN apt-get update && apt-get install -y \
+    wget \
+    curl \
+    unzip \
+    bash
 
-# Automatically generate the server.properties if not already present
-RUN if [ ! -f "/data/server.properties" ]; then \
-      echo "Generating server.properties with default values..."; \
-      echo "server-name=${SERVER_NAME}" > /data/server.properties; \
-      echo "gamemode=${GAMEMODE}" >> /data/server.properties; \
-      echo "difficulty=${DIFFICULTY}" >> /data/server.properties; \
-      echo "server-port=${SERVER_PORT}" >> /data/server.properties; \
-      echo "allow-cheats=${ALLOW_CHEATS}" >> /data/server.properties; \
-      echo "motd=${MOTD}" >> /data/server.properties; \
-      echo "eula=${EULA}" >> /data/server.properties; \
-    fi
+# Copy the configuration and files from your local directory to the container
+COPY server.properties /mnt/server/server.properties
 
-# Expose necessary ports for the Minecraft server
+# Download the Minecraft Bedrock server version specified in the environment variable
+RUN curl -L -o bedrock-server.zip https://minecraft.azureedge.net/bin-linux/bedrock-server-${BEDROCK_VERSION}.zip && \
+    unzip bedrock-server.zip -d /mnt/server && \
+    rm bedrock-server.zip && \
+    chmod +x /mnt/server/bedrock_server
+
+# Set environment variables as defined in your configuration
+ENV EULA=TRUE \
+    GAMEMODE=survival \
+    DIFFICULTY=easy \
+    SERVER_NAME="My Bedrock Server" \
+    SERVER_PORT=19132 \
+    ALLOW_CHEATS=false \
+    BEDROCK_VERSION=latest \
+    MOTD="Welcome to the server!"
+
+# Expose Minecraft Bedrock server port (UDP)
 EXPOSE 19132/udp
 
-# Copy pre-configured server properties if they exist in the build context
-COPY server.properties /data/server.properties
+# Copy all your required files such as allowlist.json, permissions.json, etc.
+COPY allowlist.json /mnt/server/allowlist.json
+COPY permissions.json /mnt/server/permissions.json
+COPY server.properties /mnt/server/server.properties
+COPY bedrock_server_how_to.html /mnt/server/bedrock_server_how_to.html
+COPY Dedicated_Server.txt /mnt/server/Dedicated_Server.txt
+COPY packet-statistics.txt /mnt/server/packet-statistics.txt
 
-# Set the default command to run the Minecraft Bedrock server
+# Ensure server has executable permissions
+RUN chmod +x /mnt/server/bedrock_server
+
+# Command to run Minecraft Bedrock Server
 CMD ["./bedrock_server"]
