@@ -1,34 +1,25 @@
-# Use the official Minecraft Bedrock image
+# Use the official Minecraft Bedrock server image from itzg
 FROM itzg/minecraft-bedrock-server:latest
 
-# Set environment variables for the server
-ENV EULA=TRUE \
-    GAMEMODE=survival \
-    DIFFICULTY=easy \
-    SERVER_NAME="My Bedrock Server" \
-    SERVER_PORT=19132 \
-    ALLOW_CHEATS=false \
-    BEDROCK_VERSION=latest \
-    MOTD="Welcome to the server!" \
-    LD_LIBRARY_PATH=.
+# Set environment variables for server configuration
+ENV EULA=TRUE
+ENV GAMEMODE=survival
+ENV DIFFICULTY=easy
+ENV SERVER_NAME="My Bedrock Server"
+ENV SERVER_PORT=19132
+ENV ALLOW_CHEATS=false
 
-# Expose the necessary port for Bedrock Edition (UDP)
+# Expose the Minecraft Bedrock server port (UDP 19132)
 EXPOSE 19132/udp
 
-# Setup the working directory
+# Copy the pre-configured server.properties file into the container's Minecraft directory
+COPY server.properties /data/
+
+# If you have an allowlist.json file, copy it to the container as well (optional)
+# COPY allowlist.json /data/  # Uncomment if you're using a whitelist
+
+# Set the working directory to where the Minecraft Bedrock server is located
 WORKDIR /data
 
-# Download and extract the server if not already set
-RUN if [ ! -f /data/bedrock_server ]; then \
-        echo "Downloading Minecraft Bedrock Server..."; \
-        curl -L -o bedrock-server.zip https://minecraft.azureedge.net/bin-linux/bedrock-server-${BEDROCK_VERSION}.zip && \
-        unzip bedrock-server.zip && \
-        rm bedrock-server.zip && \
-        chmod +x bedrock_server; \
-    fi
-
-# Setup the entrypoint to run the Minecraft server
-ENTRYPOINT ["./bedrock_server"]
-
-# Run the server when the container starts
+# The Minecraft server will run the 'bedrock_server' file as the entry point
 CMD ["./bedrock_server"]
