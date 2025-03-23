@@ -1,6 +1,94 @@
 {
-    "Image": "itzg/minecraft-bedrock-server",
-    "Cmd": "",
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "name": "Minecraft Bedrock Server",
+    "author": "Your Name",
+    "description": "Minecraft Bedrock Edition server. Play with your friends on a dedicated server powered by Docker.",
+    "features": [
+        "pid_limit"
+    ],
+    "docker_images": {
+        "ghcr.io/parkervcp/yolks:debian": "ghcr.io/parkervcp/yolks:debian"
+    },
+    "startup": "./bedrock_server",
+    "config": {
+        "files": "{\r\n    \"server.properties\": {\r\n        \"parser\": \"properties\",\r\n        \"find\": {\r\n            \"server-port\": \"{{server.build.default.port}}\",\r\n            \"server-name\": \"{{server.build.env.SERVER_NAME}}\",\r\n            \"gamemode\": \"{{server.build.env.GAMEMODE}}\",\r\n            \"difficulty\": \"{{server.build.env.DIFFICULTY}}\",\r\n            \"allow-cheats\": \"{{server.build.env.ALLOW_CHEATS}}\"\r\n        }\r\n    }\r\n}",
+        "startup": "{\r\n    \"done\": \"Server started\"\r\n}",
+        "logs": "{}",
+        "stop": "stop"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!/bin/bash\r\n\r\n# Install necessary dependencies\r\napt-get update\r\napt-get install -y wget curl unzip\r\n\r\n# Download Bedrock server files\r\ncurl -L -o bedrock-server.zip https://minecraft.azureedge.net/bin-linux/bedrock-server-${BEDROCK_VERSION}.zip\r\nunzip bedrock-server.zip -d /mnt/server\r\nrm bedrock-server.zip\r\n\r\n# Set up permissions for the server\r\nchmod +x /mnt/server/bedrock_server\r\n\r\n# Clean up installation\r\ncp /mnt/server/server.properties /mnt/server/server.properties.bak\r\n\r\necho 'Installation completed'"
+        },
+        "run": [
+            {
+                "cmd": "/mnt/server/bedrock_server",
+                "wait": true
+            }
+        ]
+    },
+    "variables": [
+        {
+            "name": "Bedrock Version",
+            "description": "The version of Bedrock to install (e.g., 1.7.0.13). Use 'latest' for the most current version.",
+            "env_variable": "BEDROCK_VERSION",
+            "default_value": "latest",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:20",
+            "field_type": "text"
+        },
+        {
+            "name": "Server Name",
+            "description": "The name of your server.",
+            "env_variable": "SERVER_NAME",
+            "default_value": "My Bedrock Server",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:50",
+            "field_type": "text"
+        },
+        {
+            "name": "Gamemode",
+            "description": "Allowed values: \"survival\", \"creative\", or \"adventure\".",
+            "env_variable": "GAMEMODE",
+            "default_value": "survival",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|in:survival,creative,adventure",
+            "field_type": "text"
+        },
+        {
+            "name": "Difficulty",
+            "description": "Allowed values: \"peaceful\", \"easy\", \"normal\", or \"hard\".",
+            "env_variable": "DIFFICULTY",
+            "default_value": "easy",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|in:peaceful,easy,normal,hard",
+            "field_type": "text"
+        },
+        {
+            "name": "Allow Cheats",
+            "description": "If true, cheats like commands can be used. Allowed values: \"true\" or \"false\".",
+            "env_variable": "ALLOW_CHEATS",
+            "default_value": "false",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|in:true,false",
+            "field_type": "text"
+        }
+    ],
+    "ports": [
+        {
+            "port": 19132,
+            "protocol": "UDP"
+        }
+    ],
     "Env": [
         "EULA=TRUE",
         "GAMEMODE=survival",
@@ -9,25 +97,5 @@
         "SERVER_PORT=19132",
         "ALLOW_CHEATS=false"
     ],
-    "Scripts": {
-        "Install": [],
-        "Run": [
-            {
-                "Cmd": "./bedrock_server",
-                "Wait": true
-            }
-        ]
-    },
-    "Name": "Minecraft Bedrock Server",
-    "Description": "Minecraft Bedrock Edition server. Play with your friends on a dedicated server powered by Docker.",
-    "Author": "Your Name",
-    "Meta": {
-        "Version": "1.21.62"
-    },
-    "Ports": [
-        {
-            "Port": 19132,
-            "Protocol": "UDP"
-        }
-    ]
+    "Cmd": "./bedrock_server"
 }
