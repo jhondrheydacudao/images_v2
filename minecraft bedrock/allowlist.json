@@ -1,0 +1,12 @@
+{
+  "allowlist": [
+    {
+      "uuid": "example-uuid-1",
+      "name": "Player1"
+    },
+    {
+      "uuid": "example-uuid-2",
+      "name": "Player2"
+    }
+  ]
+}
