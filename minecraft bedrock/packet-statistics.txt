@@ -1,0 +1,5 @@
+Packet Statistics:
+- Packets Received: 0
+- Packets Sent: 0
+- Total Players: 0
+- Active Connections: 0
