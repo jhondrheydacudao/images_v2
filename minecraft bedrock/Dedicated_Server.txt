@@ -1,0 +1,3 @@
+This is a dedicated server for Minecraft Bedrock Edition.
+To modify the settings, edit the server.properties and allowlist.json files.
+The server will run on port 19132 by default.
