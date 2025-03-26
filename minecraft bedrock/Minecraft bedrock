@@ -1,107 +1,14 @@
 {
-    "Image": "itzg/minecraft-bedrock-server",
-    "Cmd": "./bedrock_server",
-    "Env": [
-        "EULA=TRUE",
-        "GAMEMODE=survival",
-        "DIFFICULTY=easy",
-        "SERVER_NAME=My Bedrock Server",
-        "SERVER_PORT=19132",
-        "ALLOW_CHEATS=false",
-        "BEDROCK_VERSION=latest",
-        "MOTD=Welcome to the server!"
-    ],
-    "Scripts": {
-        "Install": [
-            "#!/bin/bash",
-            "echo 'Setting up Minecraft Bedrock server...'",
-            "apt-get update && apt-get install -y wget curl unzip",
-            "echo 'Downloading the Minecraft Bedrock server...'",
-            "curl -L -o bedrock-server.zip https://minecraft.azureedge.net/bin-linux/bedrock-server-${BEDROCK_VERSION}.zip",
-            "unzip bedrock-server.zip -d /mnt/server",
-            "rm bedrock-server.zip",
-            "chmod +x /mnt/server/bedrock_server",
-            "cp /mnt/server/server.properties /mnt/server/server.properties.bak"
-        ],
-        "Run": [
-            {
-                "Cmd": "./bedrock_server",
-                "Wait": true
-            }
-        ]
-    },
-    "Name": "Minecraft Bedrock Server",
-    "Description": "Minecraft Bedrock Edition server. Play with your friends on a dedicated server powered by Docker.",
-    "Author": "not owned",
-    "Meta": {
-        "Version": "1.21.62"
-    },
-    "Ports": [
-        {
-            "Port": 19132,
-            "Protocol": "UDP"
-        }
-    ],
-    "Variables": [
-        {
-            "name": "Bedrock Version",
-            "description": "The version of Bedrock to install (e.g., 1.7.0.13). Use 'latest' for the most current version.",
-            "env_variable": "BEDROCK_VERSION",
-            "default_value": "latest",
-            "user_viewable": true,
-            "user_editable": true,
-            "rules": "required|string|max:20",
-            "field_type": "text"
-        },
-        {
-            "name": "Server Name",
-            "description": "The name of your server.",
-            "env_variable": "SERVER_NAME",
-            "default_value": "My Bedrock Server",
-            "user_viewable": true,
-            "user_editable": true,
-            "rules": "required|string|max:50",
-            "field_type": "text"
-        },
-        {
-            "name": "Gamemode",
-            "description": "Allowed values: \"survival\", \"creative\", or \"adventure\".",
-            "env_variable": "GAMEMODE",
-            "default_value": "survival",
-            "user_viewable": true,
-            "user_editable": true,
-            "rules": "required|string|in:survival,creative,adventure",
-            "field_type": "text"
-        },
-        {
-            "name": "Difficulty",
-            "description": "Allowed values: \"peaceful\", \"easy\", \"normal\", or \"hard\".",
-            "env_variable": "DIFFICULTY",
-            "default_value": "easy",
-            "user_viewable": true,
-            "user_editable": true,
-            "rules": "required|string|in:peaceful,easy,normal,hard",
-            "field_type": "text"
-        },
-        {
-            "name": "Allow Cheats",
-            "description": "If true, cheats like commands can be used. Allowed values: \"true\" or \"false\".",
-            "env_variable": "ALLOW_CHEATS",
-            "default_value": "false",
-            "user_viewable": true,
-            "user_editable": true,
-            "rules": "required|string|in:true,false",
-            "field_type": "text"
-        },
-        {
-            "name": "MOTD",
-            "description": "Message of the Day displayed when players join.",
-            "env_variable": "MOTD",
-            "default_value": "Welcome to the server!",
-            "user_viewable": true,
-            "user_editable": true,
-            "rules": "required|string|max:100",
-            "field_type": "text"
-        }
-    ]
+  "name": "Minecraft Bedrock Server",
+  "image": "itzg/minecraft-bedrock-server",
+  "environment": [
+    "EULA=true",
+    "VERSION=latest"
+  ],
+  "ports": [
+    "19132:19132/udp"
+  ],
+  "volumes": [
+    "/data"
+  ]
 }
