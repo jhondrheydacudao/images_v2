@@ -28,7 +28,7 @@
       "required": true
     }
   },
-  "Name": "Minecraft Java: SpigotMC",
+  "Name": "egg: Minecraft Java: SpigotMC",
   "Description": "SpigotMC is a high-performance, open-source server software for Minecraft, designed to enhance and optimize the game's multiplayer experience. It offers extensive configuration options, a vibrant plugin ecosystem, and active community support, making it a popular choice for server administrators seeking to improve gameplay and server performance.",
   "Author": "info@skyport.dev",
   "AuthorName": "Skyport Labs",
