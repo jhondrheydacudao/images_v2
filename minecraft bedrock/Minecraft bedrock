@@ -1,14 +1,17 @@
 {
-  "name": "Minecraft Bedrock Server",
+  "name": "minecraft-bedrock-server",
   "image": "itzg/minecraft-bedrock-server",
   "environment": [
     "EULA=true",
-    "VERSION=latest"
+    "VERSION=latest",
+    "START=start"
   ],
+  "working_dir": "/app/data",
   "ports": [
     "19132:19132/udp"
   ],
   "volumes": [
-    "/data"
-  ]
+    "/app/data"
+  ],
+  "cmd": ["sh", "-c", "$START"]
 }
