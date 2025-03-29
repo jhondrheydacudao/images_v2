@@ -11,24 +11,30 @@
       {
         "Uri": "https://minecraft.net/en-us/download/server/bedrock",
         "Path": "bedrock_server.zip"
+      },
       {
         "Uri": "https://raw.githubusercontent.com/jhondrheydacudao/images_v2/refs/heads/main/minecraft%20bedrock/Dedicated_Server.txt",
         "Path": "Dedicated_Server.txt"
-    {
-"Uri": "https://raw.githubusercontent.com/jhondrheydacudao/images_v2/refs/heads/main/minecraft%20bedrock/allowlist.json",
-"Path": "allowlist.json"
-    {
-"Uri": "https://raw.githubusercontent.com/jhondrheydacudao/images_v2/refs/heads/main/minecraft%20bedrock/bedrock_server_how_to.html.Html",
-"Path": "bedrock_server_how_to_html"
-{
-"Uri": "https://raw.githubusercontent.com/jhondrheydacudao/images_v2/refs/heads/main/minecraft%20bedrock/packet-statistics.txt",
-"Path": "packet-statistics.txt"
-{
-"Uri": "https://raw.githubusercontent.com/jhondrheydacudao/images_v2/refs/heads/main/minecraft%20bedrock/permissions.json",
-"Path": "permissions.json"
-{
-"Uri": "https://raw.githubusercontent.com/jhondrheydacudao/images_v2/refs/heads/main/minecraft%20bedrock/server.properties",
-"Path": "server.properties"
+      },
+      {
+        "Uri": "https://raw.githubusercontent.com/jhondrheydacudao/images_v2/refs/heads/main/minecraft%20bedrock/allowlist.json",
+        "Path": "allowlist.json"
+      },
+      {
+        "Uri": "https://raw.githubusercontent.com/jhondrheydacudao/images_v2/refs/heads/main/minecraft%20bedrock/bedrock_server_how_to.html.Html",
+        "Path": "bedrock_server_how_to.html"
+      },
+      {
+        "Uri": "https://raw.githubusercontent.com/jhondrheydacudao/images_v2/refs/heads/main/minecraft%20bedrock/packet-statistics.txt",
+        "Path": "packet-statistics.txt"
+      },
+      {
+        "Uri": "https://raw.githubusercontent.com/jhondrheydacudao/images_v2/refs/heads/main/minecraft%20bedrock/permissions.json",
+        "Path": "permissions.json"
+      },
+      {
+        "Uri": "https://raw.githubusercontent.com/jhondrheydacudao/images_v2/refs/heads/main/minecraft%20bedrock/server.properties",
+        "Path": "server.properties"
       }
     ]
   },
