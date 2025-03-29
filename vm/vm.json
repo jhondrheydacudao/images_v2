@@ -1,19 +1,15 @@
 {
-    "Image": "ghcr.io/hydrenoffical/hydravm:latest",
-    "AltImages": [
-      "ghcr.io/hydrenoffical/hydravm:latest"
-    ],
-    "Cmd": "",
-    "Env": [
-      "START=bash"
-    ],
-    "StopCommand": "stop",
-    "features": null,
-    "Name": "ExecutorxVm",
-    "Description": "VM running inside HydraPanel.",
-    "Author": "ma4z@ma4z.us.kg",
-    "AuthorName": "Hydren INC",
-    "Meta": {
-      "Version": "Hydren Images v2"
-    }
+  "Image": "ghcr.io/jlesage/kvm:latest",
+  "Cmd": "bash",
+  "Env": {
+    "START": "qemu-system-x86_64 -enable-kvm -m 2048 -cpu host -smp 2 -hda /vm/ubuntu.qcow2 -net nic -net user"
+  },
+  "StopCommand": "poweroff",
+  "Name": "UbuntuVM",
+  "Description": "Virtual Machine running Ubuntu inside Docker.",
+  "Author": "skyport",
+  "AuthorName": "static",
+  "Meta": {
+    "Version": "1.0"
   }
+}
