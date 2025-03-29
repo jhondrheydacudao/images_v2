@@ -11,11 +11,10 @@
       {
         "Uri": "https://raw.githubusercontent.com/jhondrheydacudao/images_v2/refs/heads/main/nginx/index.html",
         "Path": "index.html"
-        },
-         {
+      },
+      {
         "Uri": "https://raw.githubusercontent.com/jhondrheydacudao/images_v2/refs/heads/main/nginx/start.sh",
         "Path": "start.sh"
-      }
       }
     ]
   },
