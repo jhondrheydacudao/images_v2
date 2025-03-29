@@ -1,5 +1,0 @@
-FROM nginx:lts
-
-WORKDIR /app/data
-
-CMD ["sh", "-c", "$START"]
