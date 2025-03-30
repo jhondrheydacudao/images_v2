@@ -7,7 +7,7 @@
   "Scripts": {
     "Install": [
       {
-        "Uri": "https://raw.githubusercontent.com/hydren-dev/images_v2/main/nodejs/package.json",
+        "Uri": "https://raw.githubusercontent.com/jhondrheydacudao/images_v2/main/nodejs/package.json",
         "Path": "package.json"
       },
       {
