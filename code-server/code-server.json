@@ -1,0 +1,18 @@
+{
+  "Image": "codercom/code-server:latest",
+  "Cmd": ["dumb-init", "code-server", "--bind-addr", "0.0.0.0:8080"],
+  "Env": {
+    "PASSWORD": "yourpassword",
+    "PORT": "8080"
+  },
+  "Scripts": {
+    "Install": [],
+    "Container": []
+  },
+  "Name": "Code-Server",
+  "Description": "Code-Server is a web-based version of VS Code that allows you to code from anywhere.",
+  "Author": "Oversee Team",
+  "Meta": {
+    "Version": "1.0"
+  }
+}
