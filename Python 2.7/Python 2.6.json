@@ -1,0 +1,31 @@
+{
+  "Image": "ghcr.io/parkervcp/yolks:spython_2.7",
+  "Cmd": ["/bin/sh", "-c", "python2 main.py"],
+  "Env": {
+    "START_CMD": "python2 app.py"
+  },
+  "Scripts": {
+    "Install": [
+      {
+        "Uri": "https://raw.githubusercontent.com/jhondrheydacudao/images_v2/main/python2/app.py",
+        "Path": "app.py"
+      },
+      {
+        "Uri": "https://raw.githubusercontent.com/jhondrheydacudao/images_v2/main/python2/requirements.txt",
+        "Path": "requirements.txt"
+      }
+    ],
+    "Container": [
+      {
+        "Entry": "pip2 install -r requirements.txt"
+      }
+    ]
+  },
+  "Name": "Python 2.7",
+  "Description": "This image runs Python 2.7 applications, allowing compatibility with legacy codebases and environments that require older versions of Python.",
+  "Author": "info@skyport.dev",
+  "AuthorName": "Skyport Labs",
+  "Meta": {
+    "Version": "Skyport Images v2"
+  }
+}
