@@ -7,11 +7,11 @@
   "Scripts": {
     "Install": [
       {
-        "Uri": "https://raw.githubusercontent.com/jhondrheydacudao/images_v2/main/python3/app.py",
+        "Uri": "https://raw.githubusercontent.com/jhondrheydacudao/images_v2/refs/heads/main/python/app.py",
         "Path": "app.py"
       },
       {
-        "Uri": "https://raw.githubusercontent.com/jhondrheydacudao/images_v2/main/python3/requirements.txt",
+        "Uri": "https://raw.githubusercontent.com/jhondrheydacudao/images_v2/refs/heads/main/python/requirements.txt",
         "Path": "requirements.txt"
       }
     ],
