@@ -1,0 +1,31 @@
+{
+  "Image": "ghcr.io/parkervcp/yolks:spython_3.8",
+  "Cmd": ["/bin/sh", "-c", "python3 app.py"],
+  "Env": {
+    "START_CMD": "python3 main.py"
+  },
+  "Scripts": {
+    "Install": [
+      {
+        "Uri": "https://raw.githubusercontent.com/jhondrheydacudao/images_v2/main/python3.8/app.py",
+        "Path": "app.py"
+      },
+      {
+        "Uri": "https://raw.githubusercontent.com/jhondrheydacudao/images_v2/main/python3.8/requirements.txt",
+        "Path": "requirements.txt"
+      }
+    ],
+    "Container": [
+      {
+        "Entry": "pip3 install -r requirements.txt"
+      }
+    ]
+  },
+  "Name": "Python 3.8",
+  "Description": "This image runs Python 3.8 applications, a popular version that offers stability and access to various modern features while maintaining compatibility with a wide range of libraries and frameworks.",
+  "Author": "info@skyport.dev",
+  "AuthorName": "Skyport Labs",
+  "Meta": {
+    "Version": "Skyport Images v2"
+  }
+}
