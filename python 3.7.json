@@ -1,0 +1,31 @@
+{
+  "Image": "ghcr.io/parkervcp/yolks:spython_3.7",
+  "Cmd": ["/bin/sh", "-c", "python3 app.py"],
+  "Env": {
+    "START_CMD": "python3 app.py"
+  },
+  "Scripts": {
+    "Install": [
+      {
+        "Uri": "https://raw.githubusercontent.com/jhondrheydacudao/images_v2/main/python3/app.py",
+        "Path": "app.py"
+      },
+      {
+        "Uri": "https://raw.githubusercontent.com/jhondrheydacudao/images_v2/main/python3/requirements.txt",
+        "Path": "requirements.txt"
+      }
+    ],
+    "Container": [
+      {
+        "Entry": "pip3 install -r requirements.txt"
+      }
+    ]
+  },
+  "Name": "Python 3.7",
+  "Description": "This image runs Python 3.7 applications, ideal for modern Python development with all the latest features and improvements in Python 3.",
+  "Author": "info@skyport.dev",
+  "AuthorName": "Skyport Labs",
+  "Meta": {
+    "Version": "Skyport Images v2"
+  }
+}
