@@ -23,9 +23,9 @@
   },
   "Name": "Python 3.7",
   "Description": "This image runs Python 3.7 applications, ideal for modern Python development with all the latest features and improvements in Python 3.",
-  "Author": "info@skyport.dev",
-  "AuthorName": "Skyport Labs",
+  "Author": "info@dacudao",
+  "AuthorName": "DACUDAO",
   "Meta": {
-    "Version": "Skyport Images v2"
+    "Version": "Images v2"
   }
 }
