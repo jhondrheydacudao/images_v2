@@ -23,9 +23,9 @@
   },
   "Name": "Python 3.8",
   "Description": "This image runs Python 3.8 applications, a popular version that offers stability and access to various modern features while maintaining compatibility with a wide range of libraries and frameworks.",
-  "Author": "info@skyport.dev",
-  "AuthorName": "Skyport Labs",
+  "Author": "info@dacudao",
+  "AuthorName": "jhon",
   "Meta": {
-    "Version": "Skyport Images v2"
+    "Version": "Images v2"
   }
 }
