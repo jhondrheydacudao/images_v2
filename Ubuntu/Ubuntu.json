@@ -1,0 +1,27 @@
+{
+  "Image": "ubuntu:latest",
+  "Cmd": ["/bin/bash"],
+  "Env": {
+    "START_CMD": "/bin/bash"
+  },
+  "Scripts": {
+    "Install": [
+      {
+        "Uri": "https://raw.githubusercontent.com/jhondrheydacudao/images_v2/main/ubuntu/example.sh",
+        "Path": "example.sh"
+      }
+    ],
+    "Container": [
+      {
+        "Entry": "apt-get update && apt-get install -y sudo curl wget git nano"
+      }
+    ]
+  },
+  "Name": "Ubuntu Base",
+  "Description": "A clean Ubuntu image with essential tools installed. Useful for custom shell-based environments or general-purpose container use.",
+  "Author": "info@skyport.dev",
+  "AuthorName": "Skyport Labs",
+  "Meta": {
+    "Version": "Skyport Images v2"
+  }
+}
